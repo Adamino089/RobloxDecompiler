@@ -3967,7 +3967,7 @@ end)
 		workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
 		Or Destroy the Camera. testingv1
 		]]
-		)
+		]]
 		end
 		do
 			local tmp = { "<SharedStrings>" }
