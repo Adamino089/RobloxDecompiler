@@ -2865,10 +2865,9 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		if FilePath then
 			placename = FilePath
 		elseif IsModel then
-			placename =
-				sanitizeFileName("model " .. PlaceName .. " " .. (ToSaveInstance or tmp[1] or game):GetFullName())
+			placename = sanitizeFileName("model " .. PlaceName .. " " .. (ToSaveInstance or tmp[1] or game):GetFullName())
 		else
-			placename = sanitizeFileName("place " .. PlaceName)
+			placename = sanitizeFileName(PlaceName .. "(Decompile)") --sanitizeFileName("place " .. PlaceName)
 		end
 
 		if OPTIONS.AvoidFileOverwrite and isfile then
@@ -3962,7 +3961,34 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
 		
 		Or Destroy the Camera.
-        \n]]
+
+		This file was generated with the following settings:
+		]]
+					.. service.HttpService:JSONEncode(OPTIONS)
+					.. "\n\n\t\tElapsed time: "
+					.. os.clock() - elapse_t
+					.. " Date (UTC): "
+					.. DateTime.now():FormatUniversalTime("LL LTS", "en-gb")
+					.. " PlaceId: "
+					.. game.PlaceId
+					.. " PlaceVersion: "
+					.. game.PlaceVersion
+					.. " Client Version: "
+					.. FULL_VERSION
+					.. " Platform: "
+					.. (
+						select(
+							2,
+							pcall(function()
+								return service.UserInputService:GetPlatform().Name -- Won't work on lvl 2 execs but we can safely assume they're on PC (and likely Windows)
+							end)
+						) or "Unknown"
+					)
+					.. " Executor: "
+					.. (identify_executor and table.concat({ identify_executor() }, " ") or "Unknown")
+					.. "\n]]"
+			)
+		end
 		do
 			local tmp = { "<SharedStrings>" }
 			for value, identifier in SharedStrings do
@@ -4021,7 +4047,6 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 
 						currentlen += 1
 						offset += SEGMENT_SIZE
-
 						if offset <= chunk_len then
 							task.wait()
 						end
