@@ -3965,7 +3965,7 @@ end)
 				
 		If you can't move the Camera, run this script in the Studio Command Bar:
 		workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
-		Or Destroy the Camera. testingv71
+		Or Destroy the Camera. 
 		]]
 					.. "\n]]"
 			)
