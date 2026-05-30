@@ -2867,7 +2867,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		elseif IsModel then
 			placename = sanitizeFileName("model " .. PlaceName .. " " .. (ToSaveInstance or tmp[1] or game):GetFullName())
 		else
-			placename = sanitizeFileName("place " .. PlaceName)
+			placename = sanitizeFileName("place " .. PlaceName .. " Decompile")
 		end
 
 		if OPTIONS.AvoidFileOverwrite and isfile then
@@ -3960,7 +3960,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		If you can't move the Camera, run this script in the Studio Command Bar:
 		workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
 		Or Destroy the Camera.
---]]
+		]]
 		]]
 			)
 		end
