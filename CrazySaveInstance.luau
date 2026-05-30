@@ -2831,6 +2831,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		local tmp = table.clone(OPTIONS.ExtraInstances)
 
 		local PlaceName = game.PlaceId
+        local GameName = tostring(PlaceId)
 
 		pcall(function()
 			PlaceName ..= " " .. service.MarketplaceService:GetProductInfoAsync(PlaceName).Name
@@ -2867,7 +2868,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		elseif IsModel then
 			placename = sanitizeFileName("model " .. PlaceName .. " " .. (ToSaveInstance or tmp[1] or game):GetFullName())
 		else
-			placename = sanitizeFileName(PlaceName .. " Decompile")
+			placename = sanitizeFileName(GameName .. " Decompile")
 		end
 
 		if OPTIONS.AvoidFileOverwrite and isfile then
