@@ -3961,7 +3961,6 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
 		Or Destroy the Camera.
 		]]
-		]]
 			)
 		end
 		do
