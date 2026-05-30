@@ -3965,9 +3965,11 @@ end)
 				
 		If you can't move the Camera, run this script in the Studio Command Bar:
 		workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
-		Or Destroy the Camera. testingv5
-]]
-        )
+		Or Destroy the Camera. testingv6
+		]]
+					.. service.HttpService:JSONEncode(OPTIONS)
+					.. "\n]]"
+			)
 		end
 		do
 			local tmp = { "<SharedStrings>" }
