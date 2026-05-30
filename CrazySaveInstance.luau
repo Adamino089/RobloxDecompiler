@@ -3962,7 +3962,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
 		
 		Or Destroy the Camera.
-        ]]
+        \n]]
 		do
 			local tmp = { "<SharedStrings>" }
 			for value, identifier in SharedStrings do
