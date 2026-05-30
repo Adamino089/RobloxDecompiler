@@ -3963,7 +3963,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		
 		Or Destroy the Camera.
 		]]
-		end
+		--end
 		do
 			local tmp = { "<SharedStrings>" }
 			for value, identifier in SharedStrings do
