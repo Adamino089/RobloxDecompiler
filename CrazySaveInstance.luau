@@ -2830,12 +2830,17 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		local mode = string.lower(OPTIONS.mode)
 		local tmp = table.clone(OPTIONS.ExtraInstances)
 
-		local PlaceName = game.PlaceId
-        local GameName = tostring(PlaceId)
+local PlaceId = game.PlaceId
+local GameName = tostring(PlaceId)
+local PlaceName = GameName
 
-		pcall(function()
-			PlaceName ..= " " .. service.MarketplaceService:GetProductInfoAsync(PlaceName).Name
-		end)
+pcall(function()
+    local info = service.MarketplaceService:GetProductInfoAsync(PlaceId)
+    if info and info.Name and info.Name ~= "" then
+        GameName = info.Name
+        PlaceName = PlaceId .. " " .. GameName
+    end
+end)
 
 		local function sanitizeFileName(str)
 			return string.sub(string.gsub(string.gsub(string.gsub(str, "[^%w _]", ""), " +", " "), " +$", ""), 1, 240)
@@ -2868,7 +2873,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		elseif IsModel then
 			placename = sanitizeFileName("model " .. PlaceName .. " " .. (ToSaveInstance or tmp[1] or game):GetFullName())
 		else
-			placename = sanitizeFileName(GameName .. " Decompile")
+            placename = sanitizeFileName(GameName .. " Decompile")
 		end
 
 		if OPTIONS.AvoidFileOverwrite and isfile then
