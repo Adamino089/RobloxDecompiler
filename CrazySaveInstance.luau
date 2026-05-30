@@ -3965,9 +3965,8 @@ end)
 				
 		If you can't move the Camera, run this script in the Studio Command Bar:
 		workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
-		Or Destroy the Camera. testingv6
+		Or Destroy the Camera. testingv7
 		]]
-					.. service.HttpService:JSONEncode(OPTIONS)
 					.. "\n]]"
 			)
 		end
