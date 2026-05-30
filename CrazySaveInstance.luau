@@ -3925,7 +3925,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 
 		if OPTIONS.ReadMe then
 			save_extra(
-				"README",
+				"ReadMe",
 				nil,
 				nil,
 				"Script",
@@ -3959,10 +3959,8 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 				
 		If you can't move the Camera, run this script in the Studio Command Bar:
 		workspace.CurrentCamera.CameraType = Enum.CameraType.Fixed
-		
 		Or Destroy the Camera.
 
-		This file was generated with the following settings:
 		]]
 					.. service.HttpService:JSONEncode(OPTIONS)
 					.. "\n\n\t\tElapsed time: "
