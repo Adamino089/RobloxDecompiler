@@ -2867,7 +2867,7 @@ local function synsaveinstance(CustomOptions, CustomOptions2)
 		elseif IsModel then
 			placename = sanitizeFileName("model " .. PlaceName .. " " .. (ToSaveInstance or tmp[1] or game):GetFullName())
 		else
-			placename = sanitizeFileName(PlaceName .. "(Decompile)") --sanitizeFileName("place " .. PlaceName)
+			placename = sanitizeFileName("place " .. PlaceName)
 		end
 
 		if OPTIONS.AvoidFileOverwrite and isfile then
