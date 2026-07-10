@@ -3117,7 +3117,7 @@ end)
 	do
 		if not OPTIONS.Decompile then
 			ldecompile = function()
-				return "-- Decompiling is disabled"
+				return "-- Decompiling Scripts is disabled."
 			end
 		elseif decompile then
 			local decomp = construct_TimeoutHandler(DecompileTimeout, decompile, "Decompiler timed out")
@@ -3733,7 +3733,7 @@ end)
 													and instance:IsA("Script")
 													and instance.RunContext ~= Enum.RunContext.Client
 											then
-												value = "-- [FilteringEnabled] Server Scripts are IMPOSSIBLE to save" -- TODO: Could be not just server scripts in the future
+												value = "-- Server Scripts are Impossible to decompile." -- TODO: Could be not just server scripts in the future
 											else
 												value = ldecompile(instance)
 												if SaveBytecode then
